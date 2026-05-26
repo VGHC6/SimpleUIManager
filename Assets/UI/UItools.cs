@@ -77,6 +77,22 @@ public class UItools
 
         return component;
     }
+
+    /// <summary>
+    /// 先查找子物体，再获取或添加组件
+    /// </summary>
+    /// <param name="parent">父物体</param>
+    /// <param name="childName">子物体名称</param>
+    /// <typeparam name="T">组件类型</typeparam>
+    /// <returns>组件</returns>
+    public T GetOrAddComponent<T>(GameObject parent, string childName) where T : Component
+    {
+        // 1. 自动查找子物体（复用你原有的 FindObjectChild）
+        GameObject childObj = FindObjectChild(parent, childName);
+
+        // 2. 调用原有方法，获取/添加组件
+        return GetOrAddComponent<T>(childObj);
+    }
 }
 
 

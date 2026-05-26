@@ -1,14 +1,14 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class BasePannel
 {
     public UItype Uitype;
-    public Object ActivityObj;//此panel在场景对应的物体
+    public GameObject ActivityObj;//姝anel鍦ㄥ満鏅搴旂殑鐗╀綋
 
     /// <summary>
-    /// 传入UItype
+    /// 浼犲叆UItype
     /// </summary>
     /// <param name="uitype">UItype</param>
     public BasePannel(UItype uitype)
@@ -17,7 +17,7 @@ public class BasePannel
     }
 
     /// <summary>
-    /// 四个生命周期函数，虚方法方便继承
+    /// 鍥涗釜鐢熷懡鍛ㄦ湡鍑芥暟锛岃櫄鏂规硶鏂逛究缁ф壙
     /// </summary>
     /// 
     public virtual void OnStart()

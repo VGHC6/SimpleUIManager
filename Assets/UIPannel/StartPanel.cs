@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartPanel : BasePannel
 {
@@ -16,6 +17,18 @@ public class StartPanel : BasePannel
     public override void OnStart()
     {
         base.OnStart();
+        UItools.GetInstance().GetOrAddComponent<Button>(ActivityObj, "Back").onClick.AddListener(Back);
+        UItools.GetInstance().GetOrAddComponent<Button>(ActivityObj, "Setting").onClick.AddListener(Setting);
+    }
+
+    private void Back()
+    {
+        GameRoot.GetInstance().UImanagerRoot.pop(false);
+    }
+
+    private void Setting()
+    {
+        GameRoot.GetInstance().UImanagerRoot.push(new SettingPanel());//º”»ÎSetting
     }
 
     public override void OnEnable()
@@ -30,6 +43,7 @@ public class StartPanel : BasePannel
 
     public override void OnDisable()
     {
+        Debug.Log("StartPanel OnDisable");
         base.OnDisable();
     }
 }
